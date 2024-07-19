@@ -1,0 +1,165 @@
+{
+  "name": "touchbar-quickies",
+  "displayName": "Touchbar Quickies",
+  "description": "Add quick action button to touchbar",
+  "version": "1.0.0",
+  "publisher": "vikas-choubey",
+  "engines": {
+    "vscode": "^1.17.0"
+  },
+  "homepage": "https://github.com/vikas2426/touchbar-quickies",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vikas2426/touchbar-quickies.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "macbook",
+    "touch bar",
+    "touchbar",
+    "vscode",
+    "developers"
+  ],
+  "activationEvents": [
+    "onCommand:extension.touchbarCommandPalette",
+    "onCommand:extension.touchbarQuickOpen",
+    "onCommand:extension.touchbarTerminal",
+    "onCommand:extension.touchbarSidebar",
+    "onCommand:extension.deleteLine",
+    "onCommand:extension.logSelectedWord",
+    "onCommand:extension.gotoLine"
+  ],
+  "main": "./out/extension",
+  "icon": "icon.png",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.touchbarCommandPalette",
+        "title": "CMD P"
+      },
+      {
+        "command": "extension.touchbarQuickOpen",
+        "title": "Q Open"
+      },
+      {
+        "command": "extension.touchbarTerminal",
+        "title": "Term"
+      },
+      {
+        "command": "extension.touchbarSidebar",
+        "title": "Sidebar"
+      },
+      {
+        "command": "extension.deleteLine",
+        "title": "Delete Line"
+    },
+    {
+        "command": "extension.logSelectedWord",
+        "title": "Console.log"
+    },
+    {
+        "command": "extension.gotoLine",
+        "title": "Go to Line"
+    }
+    ],
+    "menus": {
+      "touchBar": [
+        {
+          "command": "extension.touchbarCommandPalette",
+          "group": "cpcmd",
+          "when": "config.touchbarCommandPalette.commandPalette"
+        },
+        {
+          "command": "extension.touchbarQuickOpen",
+          "group": "cpcmd",
+          "when": "config.touchbarCommandPalette.quickOpen"
+        },
+        {
+          "command": "extension.touchbarTerminal",
+          "group": "cpcmd",
+          "when": "config.touchbarCommandPalette.terminal"
+        },
+        {
+          "command": "extension.touchbarSidebar",
+          "group": "cpcmd",
+          "when": "config.touchbarCommandPalette.sidebar"
+        },
+        {
+          "command": "extension.deleteLine",
+          "group": "cpcmd",
+          "when": "config.touchbarCommandPalette.deleteLine"
+
+      },
+      {
+          "command": "extension.logSelectedWord",
+          "group": "cpcmd",
+          "when": "config.touchbarCommandPalette.logSelectedWord"
+
+      },
+      {
+          "command": "extension.gotoLine",
+          "group": "cpcmd",
+          "when": "config.touchbarCommandPalette.gotoLine"
+      }
+       
+      ]
+    },
+    "configuration": [
+      {
+        "type": "object",
+        "title": "Touchbar Commands",
+        "properties": {
+          "touchbarCommandPalette.commandPalette": {
+            "type": "boolean",
+            "default": true,
+            "description": "Show Command Palette Button"
+          },
+          "touchbarCommandPalette.quickOpen": {
+            "type": "boolean",
+            "default": true,
+            "description": "Show Quick Open Button"
+          },
+          "touchbarCommandPalette.terminal": {
+            "type": "boolean",
+            "default": true,
+            "description": "Show or hide terminial"
+          },
+          "touchbarCommandPalette.sidebar": {
+            "type": "boolean",
+            "default": false,
+            "description": "Show or hide sidebar"
+          },
+          "touchbarCommandPalette.deleteLine": {
+            "type": "boolean",
+            "default": true,
+            "description": "Show or hide delete line"
+          },
+          "touchbarCommandPalette.logSelectedWord": {
+            "type": "boolean",
+            "default": true,
+            "description": "Show or hide log selected word"
+          },
+          "touchbarCommandPalette.gotoLine": {
+            "type": "boolean",
+            "default": true,
+            "description": "Show or hide go to line"
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.43",
+    "typescript": "^2.5.3",
+    "vsce": "^1.32.0",
+    "vscode": "^1.1.5"
+  }
+}
